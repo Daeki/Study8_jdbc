@@ -23,7 +23,7 @@ public class DepartmentDAO {
 		//1. DB에 로그인
 		Connection con = dbConnector.getConnect();
 		//2. Query문 작성
-		String sql = "SELECT department_name AS dname FROM DEPARTMENTS WHERE DEPARTMENT_ID = ? ";
+		String sql = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID = ?";
 		//3. Query문 미리 전송해서 DB가 준비
 		PreparedStatement st = con.prepareStatement(sql);
 		//4. ? 값을 세팅
@@ -38,10 +38,10 @@ public class DepartmentDAO {
 		if(rs.next()) {
 			//데이터가 있을 때
 			departmentDTO = new DepartmentDTO();
-			//departmentDTO.setDepartment_id(rs.getInt("department_id"));
-			departmentDTO.setDepartment_name(rs.getString("dname"));
-			//departmentDTO.setManager_id(rs.getInt("manager_id") );
-			//departmentDTO.setLocation_id(rs.getInt("location_id"));
+			departmentDTO.setDepartment_id(rs.getInt("department_id"));
+			departmentDTO.setDepartment_name(rs.getString("department_name"));
+			departmentDTO.setManager_id(rs.getInt("manager_id") );
+			departmentDTO.setLocation_id(rs.getInt("location_id"));
 			
 		}
 		
