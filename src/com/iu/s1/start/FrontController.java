@@ -3,20 +3,27 @@ package com.iu.s1.start;
 import java.util.Scanner;
 
 import com.iu.s1.department.DepartMentController;
+import com.iu.s1.employee.EmployeeController;
+import com.iu.s1.location.LocationController;
 
 public class FrontController {
 	
 	private Scanner sc;
 	private DepartMentController departMentController;
-	//LocationController
-	//EmployeeController
+	// LocationController
+	private LocationController locationController;
+	// EmployeeController
+	private EmployeeController employeeController;
 	
 	public FrontController() {
-		sc = new Scanner(System.in);
+		sc= new Scanner(System.in);
 		departMentController = new DepartMentController();
-		//LocationController
-		//EmployeeController
+		// LocationController
+		locationController = new LocationController();
+		// EmployeeController
+		employeeController = new EmployeeController();
 	}
+	
 	
 	public void mainStart() throws Exception {
 		boolean flag = true;
@@ -27,19 +34,21 @@ public class FrontController {
 			System.out.println("3. 지 역  관 리");
 			System.out.println("4. 프로그램 종료");
 			int select = sc.nextInt();
-			switch(select) {
+			switch (select) {
 			case 1:
-				//employeeController의 start 메서드 호출
+				// employeeController의 start 메서드 호출
+				employeeController.start();
 				break;
 			case 2:
 				departMentController.start();
 				break;
 			case 3:
-				//LocationController start 메서드 호출
+				// locationController의 start 메서드 호출
+				locationController.start();
 				break;
-			default :
-				flag=false;
-				
+			default:
+				flag = false;
+				break;
 			}
 			
 		}
