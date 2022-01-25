@@ -21,19 +21,8 @@ public class StartMain {
 		FrontController frontController = new FrontController();
 		
 		try {
-			//frontController.mainStart();
-			RegionDAO regionDAO = new RegionDAO();
-			RegionDTO regionDTO = new RegionDTO();
-			regionDTO.setRegion_id(6L);
-			regionDTO.setRegion_name("South Pole");
+			frontController.mainStart();
 			
-			int result = regionDAO.setInsert(regionDTO);
-			
-			if(result > 0) {
-				System.out.println("성공");
-			}else {
-				System.out.println("실패");
-			}
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
